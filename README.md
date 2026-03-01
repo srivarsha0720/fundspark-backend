@@ -5,6 +5,8 @@ Frontend Repository:https://github.com/srivarsha0720/fundspark-frontend
 Live Application (Netlify):https://fundspark.netlify.app/
 
 Backend API (Render):https://fundspark-backend.onrender.com
+
+---
 ## 📌 Project Overview
 
 FundSpark Backend is built using Node.js and Express.js.  
