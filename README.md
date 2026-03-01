@@ -2,10 +2,9 @@
 
 ## 📌 Project Overview
 
-FundSpark Backend provides RESTful APIs to support the crowdfunding platform.  
-It handles project creation, project management, authentication logic, and communication with Supabase database.
-
-The backend is built using Node.js and Express and deployed on Render.
+FundSpark Backend is built using Node.js and Express.js.  
+It handles user authentication, project creation, milestone tracking, and reward management.  
+The backend securely connects to a Supabase database and provides RESTful APIs for frontend integration.
 
 ---
 
@@ -13,9 +12,9 @@ The backend is built using Node.js and Express and deployed on Render.
 
 - Node.js
 - Express.js
-- Supabase (Database & Authentication)
-- JWT (if used)
-- dotenv
+- Supabase
+- JWT (JSON web Token)
+- bcrypt (Password Hashing)
 - Render (Deployment)
 
 ---
@@ -39,12 +38,6 @@ DELETE /api/projects/:id
 
 ---
 
-### 💳 Contribution / Payment Routes (If Implemented)
-
-POST /api/payments/create  
-POST /api/payments/verify  
-
----
 
 ## 🗄 Database Schema Explanation (Supabase)
 
