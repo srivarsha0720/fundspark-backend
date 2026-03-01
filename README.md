@@ -2,7 +2,7 @@
 ## Project Links
 Frontend Repository:https://github.com/srivarsha0720/fundspark-frontend
 
-Live Application (Netlify):https://fundspark.netlify.app/
+Live Application (Vercel):https://fundspark-crowd.vercel.app/
 
 Backend API (Render):https://fundspark-backend.onrender.com
 
