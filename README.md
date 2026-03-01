@@ -1,5 +1,10 @@
 # 🚀 FundSpark – Crowdfunding Platform (Backend)
+## Project Links
+Frontend Repository:
 
+Live Application (Netlify):
+
+Backend API (Render):
 ## 📌 Project Overview
 
 FundSpark Backend is built using Node.js and Express.js.  
@@ -22,19 +27,29 @@ The backend securely connects to a Supabase database and provides RESTful APIs f
 ## 📡 API Documentation
 
 ### 🔐 Authentication Routes
-
-POST /api/auth/register  
-POST /api/auth/login  
+| Method | Endpoint | Description |
+|--------|----------|------------|
+POST |/api/auth/register | Register a new user (Hashes password with bcrypt).|
+POST | /api/auth/login | Authenticate user & return JWT token |  
 
 ---
 
 ### 📂 Project Routes
 
-GET /api/projects  
-GET /api/projects/:id  
-POST /api/projects/create  
-PUT /api/projects/:id  
-DELETE /api/projects/:id  
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| GET | /api/projects/ | Fetch all projects (Homepage listing) |
+| GET | /api/projects/:id | Fetch single project by ID |
+| POST | /api/projects/create | Create new project (Protected) |
+| PUT | /api/projects/:id | Update project details (Protected) |
+| DELETE | /api/projects/:id | Delete a project (Protected) |
+| POST | /api/projects/fund/:id | Fund a project (Protected) |
+| POST | /api/projects/:id/updates | Creator adds project update |
+| GET | /api/projects/:id/updates | Get all updates for a project |
+| GET | /api/projects/:id/comments | Get all comments of a project |
+| POST | /api/projects/:id/comments | Add comment (Protected) |
+| PUT | /api/projects/comments/:commentId | Update comment (Protected) |
+| DELETE | /api/projects/comments/:commentId | Delete comment (Protected) |
 
 ---
 
@@ -51,18 +66,43 @@ DELETE /api/projects/:id
 ---
 
 ### 📁 Projects Table
-- id
-- title
-- description
+- id uuid(Primary Key)
+- title 
+- description 
 - image
 - category
 - goal
 - deadline
-- milestones
-- rewards
+- raised
+- backers
 - creator_id (foreign key reference)
 - created_at
 
+---
+### 🎁 Rewards Table
+- id (Primary Key)
+- project_id (Foreign Key → Projects)
+- title
+- amount
+- description
+- created_at
+---
+### 🎯 Milestones Table
+- id (Primary Key)
+- project_id (Foreign Key → Projects)
+- title
+- amount
+- created_at
+  
+---
+### 💳 Funding Table
+- id (Primary Key)
+- project_id (Foreign Key → Projects)
+- user_id
+- payment_method
+- amount
+- created_at
+  
 ---
 
 ## ⚙ Installation & Setup Instructions
@@ -90,10 +130,10 @@ npm install
 Create a `.env` file in the root directory and add:
 
 ```
+SUPABASE_URL=https://atnhicltjrorhskvxyxn.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF0bmhpY2x0anJvcmhza3Z4eXhuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjAxNjg0MSwiZXhwIjoyMDg3NTkyODQxfQ.tUET98X_MSkNEv7wYS2xHuCZohflBd4pPZdMfQdeaxI
+JWT_SECRET=mysupersecret
 PORT=5000
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_key
-JWT_SECRET=your_secret_key
 ```
 
 ### 5️⃣ Start the server
@@ -116,14 +156,6 @@ http://localhost:5000
 
 ---
 
-## 📦 API Base URL
-
-```
-https://fundspark-backend.onrender.com/api
-```
-
----
-
 ## 📌 Environment Variables Required
 
 SUPABASE_URL=https://atnhicltjrorhskvxyxn.supabase.co
@@ -133,7 +165,3 @@ PORT=5000
 
 ---
 
-## 👨‍💻 Developed By
-
-Sri Varsha  
-Masai School – Construct Week Project
